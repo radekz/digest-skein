@@ -1,0 +1,6 @@
+Revision history for Perl extension Digest::Skein.
+
+0.00_01  Fri Oct 31 19:11:12 2008
+	- original version; created by h2xs 1.23 with options
+		-x -O -b 5.8.0 -A -B -n Digest::Skein Optimized_64bit/SHA3api_ref.h
+

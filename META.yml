@@ -1,0 +1,14 @@
+--- #YAML:1.0
+name:                Digest-Skein
+version:             0.00_01
+abstract:            Perl extension for blah blah blah
+license:             ~
+author:              
+    - Radoslaw Zielinski <radek@pld-linux.org
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Test::More:                    0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
