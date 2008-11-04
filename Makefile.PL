@@ -8,8 +8,7 @@ WriteMakefile(
 	PREREQ_PM     => { 'Test::More' => 0, },
 	ABSTRACT_FROM => 'lib/Digest/Skein.pm',
 	AUTHOR        => 'Radoslaw Zielinski <radek@pld-linux.org',
-	DEFINE        => '',
-#	dynamic_lib   => { INST_DYNAMIC_DEP => 'Optimized_64bit/.done', },
+##	DEFINE        => '',
 	clean         => { FILES => 'Optimized_64bit/*.o', },
 );
 

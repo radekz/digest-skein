@@ -19,13 +19,13 @@ our %EXPORT_TAGS = (
 		  skein_256_base64
 		  skein_512_base64
 		  skein_1024_base64
-		  )
-	]
+		  ),
+	],
 );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION    = '0.00_01';
+our $VERSION    = '0.00_02';
 our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;
 
@@ -86,7 +86,7 @@ This module follows the Digest.pm API.  See L<Digest> for more details.
 
 =head2 EXPORT
 
-None by default.
+Nothing by default.
 
 =head2 Exportable functions
 

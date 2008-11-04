@@ -12,5 +12,9 @@ WriteMakefile(
 sub MY::postamble {
 	'
 all: static
+
+dynamic: static
+
+dynamic_lib: static
 ';
 }

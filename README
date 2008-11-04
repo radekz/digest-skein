@@ -21,3 +21,6 @@ Jesse Walker; see http://www.schneier.com/skein.html for details.
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License (GPL).
 
+
+While I would prefer to release it under LGPL, the brg_*.h files require
+GPL.  So, GPL it is for a while.
