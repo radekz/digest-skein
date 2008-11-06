@@ -32,3 +32,4 @@ t/testlib.pl
 typemap
 META.yml                                 Module meta-data (added by MakeMaker)
 TODO
+MANIFEST.SKIP
