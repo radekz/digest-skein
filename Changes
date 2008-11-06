@@ -1,5 +1,8 @@
 Revision history for Perl extension Digest::Skein.
 
+0.00_03  Thu Nov  6 16:05:20 CET 2008
+	- Makefile.PL tweaks: proper dependencies
+
 0.00_02  Tue Nov  4 10:55:10 CET 2008
 	- Makefile.PL tweaks to shut up the CPAN tester trying "make dynamic"
 
