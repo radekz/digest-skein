@@ -1,5 +1,9 @@
 Revision history for Perl extension Digest::Skein.
 
+0.01  Sat Nov 15 14:16:45 CET 2008
+	- patch from Taro Nishino <taro.nishino at gmail> to compile on Win32
+	- fix compilation on DragonFly (treat it as BSD)
+
 0.00_03  Thu Nov  6 16:05:20 CET 2008
 	- Makefile.PL tweaks: proper dependencies
 

@@ -25,7 +25,7 @@ our %EXPORT_TAGS = (
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION    = '0.00_03';
+our $VERSION    = '0.01';
 our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;
 
@@ -75,7 +75,7 @@ OO interface:
   my $base64 = Digest::Skein->new(512)->add('foo bar baz')->b64digest;
 
   # using the Digest API
-  my $hex    = Digest->Skein(256)->add('foo bar baz')->hexdigest
+  my $hex    = Digest->Skein(256)->add('foo bar baz')->hexdigest;
 
 =head1 DESCRIPTION
 

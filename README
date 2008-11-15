@@ -24,3 +24,12 @@ it under the terms of the GNU General Public License (GPL).
 
 While I would prefer to release it under LGPL, the brg_*.h files require
 GPL.  So, GPL it is for a while.
+
+
+BUGS and PATCHES
+
+Please use the CPAN RT:
+   http://rt.cpan.org/NoAuth/Bugs.html?Dist=Digest-Skein
+
+The GIT repository is at:
+   http://github.com/radekz/digest-skein/
