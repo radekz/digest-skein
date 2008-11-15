@@ -77,8 +77,9 @@ MODULE = Digest::Skein          PACKAGE = Digest::Skein::256
 Digest::Skein::256
 clone(ctx)
 		Digest::Skein::256  ctx
-	CODE:
+    PREINIT:
 		Skein_256_Ctxt_t *dest;
+	CODE:
 		Newx(dest, 1, Skein_256_Ctxt_t);
 		memcpy(dest, ctx, sizeof(*dest));
 		RETVAL = dest;
@@ -162,8 +163,9 @@ MODULE = Digest::Skein          PACKAGE = Digest::Skein::512
 Digest::Skein::512
 clone(ctx)
 		Digest::Skein::512  ctx
-	CODE:
+    PREINIT:
 		Skein_512_Ctxt_t *dest;
+	CODE:
 		Newx(dest, 1, Skein_512_Ctxt_t);
 		memcpy(dest, ctx, sizeof(*dest));
 		RETVAL = dest;
@@ -245,8 +247,9 @@ MODULE = Digest::Skein          PACKAGE = Digest::Skein::1024
 Digest::Skein::1024
 clone(ctx)
 		Digest::Skein::1024  ctx
-	CODE:
+    PREINIT:
 		Skein1024_Ctxt_t *dest;
+	CODE:
 		Newx(dest, 1, Skein1024_Ctxt_t);
 		memcpy(dest, ctx, sizeof(*dest));
 		RETVAL = dest;
