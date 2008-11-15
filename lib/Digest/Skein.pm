@@ -25,7 +25,7 @@ our %EXPORT_TAGS = (
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION    = '0.01';
+our $VERSION    = '0.02';
 our $XS_VERSION = $VERSION;
 $VERSION = eval $VERSION;
 

@@ -57,7 +57,7 @@ int Skein_256_Init(Skein_256_Ctxt_t *ctx, size_t hashBitLen)
 
             /* compute the initial chaining values from config block */
             memset(ctx->X,0,sizeof(ctx->X));            /* zero the chaining variables */
-            Skein_256_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+            Skein_256_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
             break;
         }
     /* The chaining vars ctx->X are now initialized for the given hashBitLen. */
@@ -94,7 +94,7 @@ int Skein_256_InitExt(Skein_256_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
         Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
         memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */
         Skein_256_Update(ctx,key,keyBytes);     /* hash the key */
-        Skein_256_Final (ctx,cfg.b);            /* put result into cfg.b[] */
+        Skein_256_Final_Pad(ctx,cfg.b);         /* put result into cfg.b[] */
         memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */
 #if SKEIN_NEED_SWAP
         {
@@ -116,7 +116,7 @@ int Skein_256_InitExt(Skein_256_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
     Skein_Show_Key(256,&ctx->h,key,keyBytes);
 
     /* compute the initial chaining values from config block */
-    Skein_256_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+    Skein_256_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
 
     /* The chaining vars ctx->X are now initialized */
     /* Set up to process the data message portion of the hash (default) */
@@ -254,7 +254,7 @@ int Skein_512_Init(Skein_512_Ctxt_t *ctx, size_t hashBitLen)
 
             /* compute the initial chaining values from config block */
             memset(ctx->X,0,sizeof(ctx->X));            /* zero the chaining variables */
-            Skein_512_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+            Skein_512_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
             break;
         }
 
@@ -292,7 +292,7 @@ int Skein_512_InitExt(Skein_512_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
         Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
         memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */
         Skein_512_Update(ctx,key,keyBytes);     /* hash the key */
-        Skein_512_Final (ctx,cfg.b);            /* put result into cfg.b[] */
+        Skein_512_Final_Pad(ctx,cfg.b);         /* put result into cfg.b[] */
         memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */
 #if SKEIN_NEED_SWAP
         {
@@ -314,7 +314,7 @@ int Skein_512_InitExt(Skein_512_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
     Skein_Show_Key(512,&ctx->h,key,keyBytes);
 
     /* compute the initial chaining values from config block */
-    Skein_512_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+    Skein_512_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
 
     /* The chaining vars ctx->X are now initialized */
     /* Set up to process the data message portion of the hash (default) */
@@ -451,7 +451,7 @@ int Skein1024_Init(Skein1024_Ctxt_t *ctx, size_t hashBitLen)
 
             /* compute the initial chaining values from config block */
             memset(ctx->X,0,sizeof(ctx->X));            /* zero the chaining variables */
-            Skein1024_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+            Skein1024_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
             break;
         }
 
@@ -489,7 +489,7 @@ int Skein1024_InitExt(Skein1024_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
         Skein_Start_New_Type(ctx,KEY);          /* set tweaks: T0 = 0; T1 = KEY type */
         memset(ctx->X,0,sizeof(ctx->X));        /* zero the initial chaining variables */
         Skein1024_Update(ctx,key,keyBytes);     /* hash the key */
-        Skein1024_Final (ctx,cfg.b);            /* put result into cfg.b[] */
+        Skein1024_Final_Pad(ctx,cfg.b);         /* put result into cfg.b[] */
         memcpy(ctx->X,cfg.b,sizeof(cfg.b));     /* copy over into ctx->X[] */
 #if SKEIN_NEED_SWAP
         {
@@ -511,7 +511,7 @@ int Skein1024_InitExt(Skein1024_Ctxt_t *ctx,size_t hashBitLen,u64b_t treeInfo, c
     Skein_Show_Key(1024,&ctx->h,key,keyBytes);
 
     /* compute the initial chaining values from config block */
-    Skein1024_Process_Block(ctx,cfg.b,1,sizeof(cfg));
+    Skein1024_Process_Block(ctx,cfg.b,1,SKEIN_CFG_STR_LEN);
 
     /* The chaining vars ctx->X are now initialized */
     /* Set up to process the data message portion of the hash (default) */
@@ -612,8 +612,7 @@ size_t Skein1024_API_CodeSize(void)
     }
 #endif
 
-#if SKEIN_TREE_HASH
-/**************** Functions to support tree hashing ***************/
+/**************** Functions to support MAC/tree hashing ***************/
 /* (this code is identical for Optimized and Reference versions)  */
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -664,6 +663,7 @@ int Skein1024_Final_Pad(Skein1024_Ctxt_t *ctx, u08b_t *hashVal)
     return SKEIN_SUCCESS;
     }
 
+#if SKEIN_TREE_HASH
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /* just do the OUTPUT stage                                       */
 int Skein_256_Output(Skein_256_Ctxt_t *ctx, u08b_t *hashVal)

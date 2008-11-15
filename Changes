@@ -1,5 +1,11 @@
 Revision history for Perl extension Digest::Skein.
 
+0.02  Sat Nov 15 19:30:06 CET 2008
+	- sync with http://www.schneier.com/code/Skein_NIST_CD_111008.zip
+	  this fixes a bug with the block padding size, see
+	  http://www.schneier.com/blog/archives/2008/10/the_skein_hash.html#c323784
+	- NOTE: the hash values for 512 and 1024 have changed because of the above!
+
 0.01  Sat Nov 15 14:16:45 CET 2008
 	- patch from Taro Nishino <taro.nishino at gmail> to compile on Win32
 	- fix compilation on DragonFly (treat it as BSD)

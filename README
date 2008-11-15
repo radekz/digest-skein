@@ -23,7 +23,7 @@ it under the terms of the GNU General Public License (GPL).
 
 
 While I would prefer to release it under LGPL, the brg_*.h files require
-GPL.  So, GPL it is for a while.
+GPL.  So, GPL it is for now.
 
 
 BUGS and PATCHES

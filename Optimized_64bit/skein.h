@@ -117,18 +117,18 @@ int  Skein_512_InitExt(Skein_512_Ctxt_t *ctx, size_t hashBitLen, u64b_t treeInfo
 int  Skein1024_InitExt(Skein1024_Ctxt_t *ctx, size_t hashBitLen, u64b_t treeInfo, const u08b_t *key, size_t keyBytes);
 
 /*
-**   Skein APIs for tree hash:
+**   Skein APIs for MAC and tree hash:
 **		Final_Pad:  pad, do final block, but no OUTPUT type
 **		Output:     do just the output stage
 */
-#ifndef SKEIN_TREE_HASH
-#define SKEIN_TREE_HASH (1)
-#endif
-#if  SKEIN_TREE_HASH
 int  Skein_256_Final_Pad(Skein_256_Ctxt_t *ctx, u08b_t * hashVal);
 int  Skein_512_Final_Pad(Skein_512_Ctxt_t *ctx, u08b_t * hashVal);
 int  Skein1024_Final_Pad(Skein1024_Ctxt_t *ctx, u08b_t * hashVal);
 
+#ifndef SKEIN_TREE_HASH
+#define SKEIN_TREE_HASH (1)
+#endif
+#if  SKEIN_TREE_HASH
 int  Skein_256_Output   (Skein_256_Ctxt_t *ctx, u08b_t * hashVal);
 int  Skein_512_Output   (Skein_512_Ctxt_t *ctx, u08b_t * hashVal);
 int  Skein1024_Output   (Skein1024_Ctxt_t *ctx, u08b_t * hashVal);
@@ -194,6 +194,8 @@ int  Skein1024_Output   (Skein1024_Ctxt_t *ctx, u08b_t * hashVal);
 #define SKEIN_MK_64(hi32,lo32)  ((lo32) + (((u64b_t) (hi32)) << 32))
 #define SKEIN_SCHEMA_VER        SKEIN_MK_64(SKEIN_VERSION,SKEIN_ID_STRING_LE)
 #define SKEIN_KS_PARITY         SKEIN_MK_64(0x55555555,0x55555555)
+
+#define SKEIN_CFG_STR_LEN       (4*8)
 
 /* bit field definitions in config block treeInfo word */
 #define SKEIN_CFG_TREE_LEAF_SIZE_POS  ( 0)
