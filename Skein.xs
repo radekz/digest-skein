@@ -31,7 +31,6 @@ Skein(hashbitlen, data)
 		for (i=0; i<hashbitlen/8; i++)
 			sprintf(&ret[2*i], "%02X", hashval[i]);
 		ST(0) = sv_2mortal(newSVpv(ret, hashbitlen/4));
-	  //SvCUR_set(ST(0) , hashbitlen/4);
 		XSRETURN(1);
 	}
 
@@ -53,7 +52,7 @@ skein_512(data)
 	PPCODE:
 	{
 		char hashval[512/8];
-		if ( Hash( 512, data, SvCUR(ST(0)) * 8, hashval ) != SUCCESS )
+		if ( Hash( 512, data, (DataLength) SvCUR(ST(0)) * 8, hashval ) != SUCCESS )
 			croak("Hash(512) failed");
 		ST(0) = sv_2mortal(newSVpv(hashval, 512/8));
 		XSRETURN(1);
@@ -65,7 +64,7 @@ skein_1024(data)
 	PPCODE:
 	{
 		char hashval[1024/8];
-		if ( Hash( 1024, data, SvCUR(ST(0)) * 8, hashval ) != SUCCESS )
+		if ( Hash( 1024, data, (DataLength) SvCUR(ST(0)) * 8, hashval ) != SUCCESS )
 			croak("Hash(1024) failed");
 		ST(0) = sv_2mortal(newSVpv(hashval, 1024/8));
 		XSRETURN(1);

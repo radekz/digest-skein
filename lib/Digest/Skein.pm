@@ -107,7 +107,7 @@ L<Digest>
 
 =head1 AUTHOR
 
-Radoslaw Zielinski E<lt>radek@pld-linux.orgE<gt>
+Radoslaw Zielinski E<lt>radek@pld-linux.orgE<gt>, L<http://radek.cc/>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -122,3 +122,5 @@ This library is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License (GPL).
 
 =cut
+
+# vim: ts=4 sw=4 noet tw=100

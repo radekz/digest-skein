@@ -1,9 +1,6 @@
 BitSequence *					T_PV
 DataLength					T_UV
 HashReturn					T_PTROBJ
-#Skein1024_Ctxt_t *				T_PTROBJ
-#Skein_256_Ctxt_t *				T_PTROBJ
-#Skein_512_Ctxt_t *				T_PTROBJ
 const BitSequence *				T_PV
 const u08b_t *					T_PV
 hashState *					T_PTROBJ
