@@ -2,7 +2,7 @@
 use strict;
 use bytes;
 
-use Test::More tests => 20;
+use Test::More tests => 24;
 
 use Digest::Skein ':all';
 use Digest ();
@@ -31,25 +31,26 @@ is( encode_base64( skein_512('foo') ), skein_512_base64('foo'), 'base64' );
 # OO interface
 
 ok( my $digest = Digest->Skein(256), 'new 256' );
-
 ok( $digest->add("f"), 'add "f"' );
 
-is( $digest, $digest->add("oo"), 'chaining' );
+is( $digest,            $digest->add("oo"), 'chaining' );
+is( $digest->hexdigest, lc $foo_256,        '256(foo)' );
 
-is( $digest->hexdigest, lc $foo_256, '256(foo)' );
+is( Digest->new('Skein')->add('bar')->hexdigest, Digest->Skein->new(512)->add('bar')->hexdigest, 'default=512' );
 
-#is( Digest->Skein(512)->add('foo')->hexdigest,  $foo_512,    '512(foo)' );
-#is( Digest->Skein(1024)->add('foo')->hexdigest, $foo_1024,   '1024(foo)' );
+is( Digest->Skein(256)->add('foo')->hexdigest,  lc $foo_256,  '256(foo)'  );
+is( Digest->Skein(512)->add('foo')->hexdigest,  lc $foo_512,  '512(foo)'  );
+is( Digest->Skein(1024)->add('foo')->hexdigest, lc $foo_1024, '1024(foo)' );
 
-ok( $digest->new(128) );
-is( $digest->hashbitlen, 128 );
+ok( $digest->new(128), 'new(128)' );
+is( $digest->hashbitlen, 128, 'hashbitlen()' );
 
 $digest->add(qw/f o o/);
 
-ok( $digest->new );
-is( $digest->hashbitlen, 128 );
-ok( $digest->new(256) );
-is( $digest->hashbitlen, 256 );
+ok( $digest->new,             'new() as a method' );
+is( $digest->hashbitlen, 128, 'new() as a method retains hashbitlen by default' );
+ok( $digest->new(256),        '...but hashbitlen can be forced...' );
+is( $digest->hashbitlen, 256, '...and it actually works' );
 
 is( $digest->add("foo")->hexdigest,        lc $foo_256, 'reset() resets the object' );
 is( $digest->reset->add("foo")->hexdigest, lc $foo_256, 'reset returns a clean object' );

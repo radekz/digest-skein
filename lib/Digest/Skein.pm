@@ -76,6 +76,8 @@ OO interface:
 
   # using the Digest API
   my $hex    = Digest->Skein(256)->add('foo bar baz')->hexdigest;
+  my $base64 = Digest->new('Skein')->add('foo bar baz')->b64digest;   # default is 512
+  my $digest = Digest->new('Skein', 512)->add('foo bar baz')->digest; # ...just like here
 
 =head1 DESCRIPTION
 
