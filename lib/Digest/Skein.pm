@@ -65,9 +65,9 @@ Digest::Skein - Perl interface to the Skein digest algorithm
 
 =head1 SYNOPSIS
 
-  use Digest::Skein qw/ digest_512 digest_512_hex /;
-  my $digest    = digest_512('foo bar baz');
-  my $hexdigest = digest_512_hex('foo bar baz');
+  use Digest::Skein qw/ skein_512 skein_512_hex /;
+  my $digest    = skein_512('foo bar baz');
+  my $hexdigest = skein_512_hex('foo bar baz');
 
 OO interface:
 
