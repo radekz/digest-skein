@@ -1,5 +1,11 @@
 Revision history for Perl extension Digest::Skein.
 
+0.03  Mon Nov 17 18:43:25 CET 2008
+	- fixed documentation bug (thanks, depesz)
+	- get rid of the ShortMsgKat*.txt from the *.tar.gz (too large)
+	- add digest-benchmark (not installed)
+	- minor cleanups
+
 0.02  Sat Nov 15 19:30:06 CET 2008
 	- sync with http://www.schneier.com/code/Skein_NIST_CD_111008.zip
 	  this fixes a bug with the block padding size, see

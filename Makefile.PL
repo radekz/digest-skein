@@ -7,7 +7,7 @@ WriteMakefile(
 	NAME         => 'Digest::Skein',
 	VERSION_FROM => 'lib/Digest/Skein.pm',
 	PREREQ_PM    => {
-		Digest         => 0,
+		'Digest'       => 0,
 		'MIME::Base64' => 0,
 		'Test::More'   => 0,
 	},
