@@ -13,7 +13,7 @@ WriteMakefile(
 		'Test::More'   => 0,
 	},
 	ABSTRACT_FROM => 'lib/Digest/Skein.pm',
-	AUTHOR        => 'Radoslaw Zielinski <radek@pld-linux.org',
+	AUTHOR        => 'Radoslaw Zielinski <radek@pld-linux.org>',
 	clean         => { FILES => 'Optimized_64bit/*.o', },
 	dynamic_lib   => { INST_DYNAMIC_DEP => 'subdirs', },
 	LDFROM        => '$(OBJECT) Optimized_64bit/*$(OBJ_EXT)',
