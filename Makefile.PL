@@ -5,6 +5,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
 	NAME         => 'Digest::Skein',
+	LICENSE      => 'gpl',
 	VERSION_FROM => 'lib/Digest/Skein.pm',
 	PREREQ_PM    => {
 		'Digest'       => 0,
