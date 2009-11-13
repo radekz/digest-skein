@@ -613,7 +613,7 @@ size_t Skein1024_API_CodeSize(void)
 #endif
 
 /**************** Functions to support MAC/tree hashing ***************/
-/* (this code is identical for Optimized and Reference versions)  */
+/*   (this code is identical for Optimized and Reference versions)    */
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /* finalize the hash computation and output the block, no OUTPUT stage */

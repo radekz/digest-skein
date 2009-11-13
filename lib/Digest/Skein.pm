@@ -81,8 +81,8 @@ OO interface:
 
 =head1 DESCRIPTION
 
-Digest::Skein implements the Skein digest algorithm, submitted to NIST
-for the SHA-3 competition.
+Digest::Skein implements the Skein digest algorithm (specification v1.2),
+submitted to NIST for the SHA-3 competition.
 
 This module follows the Digest.pm API.  See L<Digest> for more details.
 
