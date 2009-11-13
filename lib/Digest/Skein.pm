@@ -25,9 +25,8 @@ our %EXPORT_TAGS = (
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION    = '0.03';
+our $VERSION    = '0.04';
 our $XS_VERSION = $VERSION;
-$VERSION = eval $VERSION;
 
 require XSLoader;
 XSLoader::load( 'Digest::Skein', $XS_VERSION );
