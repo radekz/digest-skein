@@ -149,6 +149,8 @@ digest(ctx)
 		int len = (ctx->h.hashBitLen + 7) >> 3;
 		if ( Skein_256_Final(ctx, hashval) != SUCCESS )
 			croak("final() failed");
+		if ( Skein_256_Init(ctx, ctx->h.hashBitLen) != SUCCESS ) /* reset */
+			croak("Init() failed");
 		ST(0) = sv_2mortal(newSVpv(hashval, len));
 		XSRETURN(1);
 	}
@@ -235,6 +237,8 @@ digest(ctx)
 		int len = (ctx->h.hashBitLen + 7) >> 3;
 		if ( Skein_512_Final(ctx, hashval) != SUCCESS )
 			croak("final() failed");
+		if ( Skein_512_Init(ctx, ctx->h.hashBitLen) != SUCCESS ) /* reset */
+			croak("Init() failed");
 		ST(0) = sv_2mortal(newSVpv(hashval, len));
 		XSRETURN(1);
 	}
@@ -319,6 +323,8 @@ digest(ctx)
 		int len = (ctx->h.hashBitLen + 7) >> 3;
 		if ( Skein1024_Final(ctx, hashval) != SUCCESS )
 			croak("final() failed");
+		if ( Skein1024_Init(ctx, ctx->h.hashBitLen) != SUCCESS ) /* reset */
+			croak("Init() failed");
 		ST(0) = sv_2mortal(newSVpv(hashval, len));
 		XSRETURN(1);
 	}

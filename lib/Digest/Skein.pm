@@ -25,7 +25,7 @@ our %EXPORT_TAGS = (
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our $VERSION    = '0.04';
+our $VERSION    = '0.05';
 our $XS_VERSION = $VERSION;
 
 require XSLoader;

@@ -1,5 +1,11 @@
 Revision history for Perl extension Digest::Skein.
 
+0.05  Thu Dec 10 10:43:19 IST 2009
+	- fixed RT#52551 -- digest() should reset the object
+
+0.04  Sat Nov 14 00:09:15 IST 2009
+	- updated to spec v1.2
+
 0.03  Mon Nov 17 18:43:25 CET 2008
 	- fixed documentation bug (thanks, depesz)
 	- get rid of the ShortMsgKat*.txt from the *.tar.gz (too large)

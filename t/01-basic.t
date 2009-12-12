@@ -2,7 +2,7 @@
 use strict;
 use bytes;
 
-use Test::More tests => 24;
+use Test::More tests => 25;
 
 use Digest::Skein ':all';
 use Digest ();
@@ -52,7 +52,8 @@ is( $digest->hashbitlen, 128, 'new() as a method retains hashbitlen by default' 
 ok( $digest->new(256),        '...but hashbitlen can be forced...' );
 is( $digest->hashbitlen, 256, '...and it actually works' );
 
-is( $digest->add("foo")->hexdigest,        lc $foo_256, 'reset() resets the object' );
-is( $digest->reset->add("foo")->hexdigest, lc $foo_256, 'reset returns a clean object' );
+is( $digest->add("foo")->hexdigest,        lc $foo_256, 'prepare for reset() test...' );
+is( $digest->reset->add("foo")->hexdigest, lc $foo_256, 'reset() returns a clean object' );
+is( $digest->add("foo")->hexdigest,        lc $foo_256, 'digest() also resets the object' );
 
 # vim: ts=4 sw=4 noet
