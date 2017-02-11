@@ -20,12 +20,14 @@
 /* select the context size and init the context */
 HashReturn Init(hashState *state, int hashbitlen)
     {
+#if SKEIN_256_NIST_MAX_HASH_BITS
     if (hashbitlen <= SKEIN_256_NIST_MAX_HASHBITS)
         {
         Skein_Assert(hashbitlen > 0,BAD_HASHLEN);
         state->statebits = 64*SKEIN_256_STATE_WORDS;
         return Skein_256_Init(&state->u.ctx_256,(size_t) hashbitlen);
         }
+#endif
     if (hashbitlen <= SKEIN_512_NIST_MAX_HASHBITS)
         {
         state->statebits = 64*SKEIN_512_STATE_WORDS;

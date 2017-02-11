@@ -1,4 +1,9 @@
 Revision history for Perl extension Digest::Skein.
+0.10  Sat Feb 11 11:12:13 EST 2017
+	- updated to spec v1.3 ( sync http://www.skein-hash.info/sites/default/files/NIST_CD_102610.zip )
+        - values are the same than the python module pyskein
+	- please see t/info_references.txt
+	- NOTE: all the hash values have changed because of the above!
 
 0.05  Thu Dec 10 10:43:19 IST 2009
 	- fixed RT#52551 -- digest() should reset the object
