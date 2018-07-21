@@ -108,7 +108,7 @@ L<Digest>
 
 =head1 AUTHOR
 
-Radoslaw Zielinski E<lt>radek@pld-linux.orgE<gt>, L<http://radek.cc/>
+Erwan Mas E<lt>erwan+cpan@mas.nom.frE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

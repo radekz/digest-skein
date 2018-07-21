@@ -12,7 +12,9 @@ To install this module type the following:
 
 COPYRIGHT AND LICENCE
 
-Copyright (C) 2008 by Radoslaw Zielinski <radek@pld-linux.org> <http://radek.cc/>
+Copyright (C) 2017 by Erwan Mas <erwan+cpan@mas.nom.fr>
+
+Copyright (C) 2008-2017 by Radoslaw Zielinski <radek@pld-linux.org> <http://radek.cc/>
 
 This library is based on code written by Niels Ferguson, Stefan Lucks,
 Bruce Schneier, Doug Whiting, Mihir Bellare, Tadayoshi Kohno, Jon Callas,
@@ -32,4 +34,4 @@ Please use the CPAN RT:
    http://rt.cpan.org/NoAuth/Bugs.html?Dist=Digest-Skein
 
 The GIT repository is at:
-   http://github.com/radekz/digest-skein/
+   https://github.com/ErwanMAS/digest-skein/
