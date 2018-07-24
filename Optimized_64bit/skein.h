@@ -27,6 +27,10 @@
 **                                1: return SKEIN_FAIL to flag errors
 **
 ***************************************************************************/
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #include <stddef.h>                          /* get size_t definition */
 #include "skein_port.h"                      /* get platform-specific definitions */
@@ -193,7 +197,7 @@ int  Skein1024_Output   (Skein1024_Ctxt_t *ctx, u08b_t * hashVal);
 
 #define SKEIN_MK_64(hi32,lo32)  ((lo32) + (((u64b_t) (hi32)) << 32))
 #define SKEIN_SCHEMA_VER        SKEIN_MK_64(SKEIN_VERSION,SKEIN_ID_STRING_LE)
-#define SKEIN_KS_PARITY         SKEIN_MK_64(0x55555555,0x55555555)
+#define SKEIN_KS_PARITY         SKEIN_MK_64(0x1BD11BDA,0xA9FC1A22)
 
 #define SKEIN_CFG_STR_LEN       (4*8)
 
@@ -314,6 +318,10 @@ enum
 #define SKEIN_256_ROUNDS_TOTAL (8*((((SKEIN_ROUNDS/100) + 5) % 10) + 5))
 #define SKEIN_512_ROUNDS_TOTAL (8*((((SKEIN_ROUNDS/ 10) + 5) % 10) + 5))
 #define SKEIN1024_ROUNDS_TOTAL (8*((((SKEIN_ROUNDS    ) + 5) % 10) + 5))
+#endif
+
+#ifdef __cplusplus
+}
 #endif
 
 #endif  /* ifndef _SKEIN_H_ */

@@ -56,7 +56,7 @@ HashReturn Hash  (int hashbitlen,   const BitSequence *data,
 ** The selection is controlled by these constants.
 */
 #ifndef SKEIN_256_NIST_MAX_HASHBITS
-#define SKEIN_256_NIST_MAX_HASHBITS (256)
+#define SKEIN_256_NIST_MAX_HASHBITS (0)
 #endif
 
 #ifndef SKEIN_512_NIST_MAX_HASHBITS
